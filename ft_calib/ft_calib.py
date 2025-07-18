@@ -58,7 +58,7 @@ def main(file_path):
     T = np.asarray(T_rows)
 
     # 4. least‑squares COM
-    r = -np.linalg.lstsq(A, T, rcond=None)[0] / MASS
+    r = np.linalg.lstsq(A, T, rcond=None)[0] / MASS
 
     # 5. residual RMS
     residual_rms = np.linalg.norm(T + MASS * (A @ r)) / np.sqrt(T.size)
